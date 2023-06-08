@@ -2,8 +2,7 @@
 </script>
 
 <template>
-  <div>👋 Hello there</div>
+  <HeroSection />
 </template>
 
-<style lang="postcss" scoped>
-</style>
+<style lang="postcss" scoped></style>

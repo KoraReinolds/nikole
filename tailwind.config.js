@@ -2,6 +2,10 @@ module.exports = {
   theme: {
     extend: {
       colors: {
+        main: '#FFDFB8',
+        secondary: '#D1A45A',
+        dark: '#2F190A',
+        black: '#180D0A',
         steel: {
           '300': '#4C4C4C',
           '400': '#353537',
@@ -25,8 +29,12 @@ module.exports = {
       },
       zIndex: {
         '-1': '-1',
+      },
+      fontFamily: {
+        'z': ['Zhikharev'],
+        'm': ['MontserratAlternates'],
       }
-    }
+    },
   },
   variants: {
   },
