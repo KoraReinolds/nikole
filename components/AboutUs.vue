@@ -3,7 +3,18 @@
 
 <template>
   <div class="bg-black px-8 py-24 text-xl flex flex-col text-main justify-center">
-    <h1 class="font-z text-6xl text-secondary">О нас</h1>
+    <div class="grid grid-cols-2 gap-4">
+      <div class="h-48 bg-main">
+        <img class="object-cover h-full w-full" src="@/assets/img/reseption.jpg" />
+      </div>
+      <div class="h-48 bg-main">
+        <img class="object-cover h-full w-full" src="@/assets/img/procedure.jpg" />
+      </div>
+      <div class="h-48 bg-main col-span-2">
+        <img class="object-cover h-full w-full" src="@/assets/img/chairs.jpg" />
+      </div>
+    </div>
+    <h1 class="font-z text-6xl text-secondary pt-12">О нас</h1>
     <p class="pt-12">Профстудия «Николе» - верный шаг на пути к гармонии души и тела!</p>
     <div class="bg-secondary h-[1px] w-48 mt-6"></div>
     <p class="pt-6">Уютная атмосфера в центре Мурманска.</p>

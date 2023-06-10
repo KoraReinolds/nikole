@@ -2,7 +2,7 @@
 </script>
 
 <template>
-  <HeroSection />
+  <!-- <HeroSectin /> -->
   <AboutUs />
 </template>
 
