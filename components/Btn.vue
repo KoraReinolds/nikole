@@ -1,12 +1,12 @@
 <script setup>
-const props = defineProps({ link: String })
+const props = defineProps({ link: String, title: String })
 </script>
 
 <template>
   <div
-    class="cursor-pointer text-xl text-dark -skew-x-8 h-12 w-64 rounded-2xl font-bold italic text-center bg-main flex items-center justify-center">
+    class="cursor-pointer text-xl text-dark -skew-x-8 h-12 rounded-2xl font-bold italic text-center bg-main flex items-center justify-center">
     <a :href="props.link">
-      Получить скидку
+      {{ props.title }}
     </a>
   </div>
 </template>
