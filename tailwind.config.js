@@ -32,7 +32,7 @@ module.exports = {
       },
       fontFamily: {
         'z': ['Zhikharev'],
-        'm': ['MontserratAlternates'],
+        'm': ['Marianna'],
       }
     },
   },

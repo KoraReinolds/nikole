@@ -4,7 +4,8 @@
 <template>
   <!-- <HeroSection /> -->
   <!-- <AboutUs /> -->
-  <Reviews />
+  <!-- <Reviews /> -->
+  <School />
 </template>
 
 <style lang="postcss" scoped></style>
