@@ -2,8 +2,9 @@
 </script>
 
 <template>
-  <!-- <HeroSectin /> -->
-  <AboutUs />
+  <!-- <HeroSection /> -->
+  <!-- <AboutUs /> -->
+  <Reviews />
 </template>
 
 <style lang="postcss" scoped></style>
