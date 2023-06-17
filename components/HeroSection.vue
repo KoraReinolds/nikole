@@ -8,6 +8,7 @@
         class="h-full w-full object-cover absolute inset-0">
     </FadedImg>
     <div class="relative px-8 flex flex-col items-center justify-center h-full">
+      <Logo class="fill-secondary pb-12" />
       <div class="text-3xl font-bold italic text-center text-main">
         Скидка <span class="text-5xl text-secondary">20%</span>
         <p>на первое посещение</p>

@@ -189,7 +189,7 @@ const masters = [
 </script>
 
 <template>
-  <!-- <HeroSection /> -->
+  <HeroSection />
   <!-- <AboutUs /> -->
   <!-- <Reviews /> -->
   <!-- <Services class="relative" :master="masters[0]">
@@ -295,9 +295,9 @@ const masters = [
 
   <!-- <School /> -->
   <!-- <Contacts /> -->
-  <ClientOnly>
+  <!-- <ClientOnly>
     <Map></Map>
-  </ClientOnly>
+  </ClientOnly> -->
 </template>
 
 <style lang="postcss" scoped></style>
