@@ -294,7 +294,10 @@ const masters = [
   </Services> -->
 
   <!-- <School /> -->
-  <Contacts />
+  <!-- <Contacts /> -->
+  <ClientOnly>
+    <Map></Map>
+  </ClientOnly>
 </template>
 
 <style lang="postcss" scoped></style>

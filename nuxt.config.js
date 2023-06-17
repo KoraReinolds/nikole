@@ -1,7 +1,7 @@
 // https://v3.nuxtjs.org/api/configuration/nuxt.config
 export default defineNuxtConfig({
   ssr: false,
-  
+
   nitro: { compressPublicAssets: true },
 
   modules: [
@@ -15,6 +15,10 @@ export default defineNuxtConfig({
 
   css: [
     "@/assets/css/base.postcss"
+  ],
+
+  plugins: [
+    { src: '~/plugins/ym.js', mode: 'client' }
   ],
 
   app: {
