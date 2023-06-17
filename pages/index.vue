@@ -192,7 +192,7 @@ const masters = [
   <!-- <HeroSection /> -->
   <!-- <AboutUs /> -->
   <!-- <Reviews /> -->
-  <Services class="relative" :master="masters[0]">
+  <!-- <Services class="relative" :master="masters[0]">
     <template #bg>
       <FadedImg>
         <img class="object-cover w-full h-full absolute inset-0" src="@/assets/img/services/депиляция.png">
@@ -291,9 +291,10 @@ const masters = [
     <template #master>
       <img class="object-cover w-32 h-32 rounded-full relative" name="bg" src="@/assets/img/masters/Karina.jpg">
     </template>
-  </Services>
+  </Services> -->
 
   <!-- <School /> -->
+  <Contacts />
 </template>
 
 <style lang="postcss" scoped></style>
