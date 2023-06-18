@@ -195,7 +195,7 @@ const masters = [
 <template>
   <!-- <HeroSection /> -->
   <!-- <AboutUs />x -->
-  <!-- <Reviews /> -->
+  <Reviews />
   <Services class="relative" v-for="master in masters" :master="master" />
   <!-- <School /> -->
   <!-- <Contacts /> -->

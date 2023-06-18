@@ -2,6 +2,7 @@
 const props = defineProps({
   master: Object,
 })
+const descHidden = ref(false)
 </script>
 
 <template>
@@ -20,8 +21,15 @@ const props = defineProps({
       </div>
     </div>
     <div class="bg-secondary h-[1px] w-96 my-6" />
-    <div v-if="master.description" class="w-96 text-main text-base" v-html="master.description"></div>
-    <ul>
+    <div v-if="master.description" @click="descHidden = true"
+      :class="['cursor-pointer relative', descHidden ? '' : 'h-24 overflow-hidden']">
+      <div v-if="!descHidden"
+        class="w-full h-full bg-gradient-to-t from-black via-transparent via-30% absolute inset-0" />
+      <Arrow v-if="!descHidden" class="absolute rotate-90 top-16 z-10 left-1/2 -translate-x-1/2" />
+      <div class="absolute h-10 cursor-pointer w-full top-16"></div>
+      <div class="w-96 text-main text-base" v-html="master.description"></div>
+    </div>
+    <ul class="pt-6">
       <li v-for="item in master.list"
         class="even:bg-dark leading-9 flex justify-between items-center w-96 px-4 text-main">
         <List class="w-4 h-4 fill-secondary" />
