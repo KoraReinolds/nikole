@@ -1,8 +1,12 @@
 <script setup>
+const servicesImgs = import.meta.globEager('@/assets/img/services/*.png');
+const mastersImgs = import.meta.globEager('@/assets/img/masters/*.jpg');
 const masters = [
   {
     name: "Ольга",
     specialization: "Депиляция",
+    imgMaster: mastersImgs['/assets/img/masters/Olga.jpg'].default,
+    img: servicesImgs['/assets/img/services/депиляция.png'].default,
     list: [
       { name: 'Голени/бедра', price: 1400 },
       { name: 'Глубокое бикини', price: 1600 },
@@ -21,6 +25,8 @@ const masters = [
   {
     name: "Ольга",
     specialization: "Шугаринг (мужской)",
+    imgMaster: mastersImgs['/assets/img/masters/Olga.jpg'].default,
+    img: servicesImgs['/assets/img/services/шугаринг.png'].default,
     list: [
       { name: 'Грудь + живот', price: 2000 },
       { name: 'Зона паха', price: 2700 },
@@ -34,7 +40,9 @@ const masters = [
   },
   {
     name: "Ольга",
-    specialization: "Электро\nэпиляция",
+    specialization: "Электроэпиляция",
+    imgMaster: mastersImgs['/assets/img/masters/Olga.jpg'].default,
+    img: servicesImgs['/assets/img/services/электроэпиляция.png'].default,
     description: `Избавиться от волос навсегда это реально!<br/><br/>
 
       Что вы получите пройдя курс электроэпиляции?<br/><br/>
@@ -58,22 +66,8 @@ const masters = [
   {
     name: "Ксения",
     specialization: "Перманентный макияж",
-    list: [
-      { name: 'ПМ бровей - Волосковая техника', price: 9000 },
-      { name: 'ПМ бровей - Теневая техника', price: 9000 },
-      { name: 'ПМ бровей - Коррекция', price: 5500 },
-      { name: 'ПМ губ - Акварельный прокрас', price: 9000 },
-      { name: 'ПМ губ - Помадный прокрас', price: 9000 },
-      { name: 'ПМ губ - Коррекция', price: 5500 },
-      { name: 'ПМ век - Межресничная стрелка', price: 7000 },
-      { name: 'ПМ век - Классическая стрелка', price: 9000 },
-      { name: 'ПМ век - Стрелка с растушевкой (теневая)', price: 9000 },
-      { name: 'ПМ век - Коррекция', price: 5500 },
-    ]
-  },
-  {
-    name: "Ксения",
-    specialization: "Перманентный макияж",
+    imgMaster: mastersImgs['/assets/img/masters/Ksenia.jpg'].default,
+    img: servicesImgs['/assets/img/services/пм.png'].default,
     list: [
       { name: 'ПМ бровей - Волосковая техника', price: 9000 },
       { name: 'ПМ бровей - Теневая техника', price: 9000 },
@@ -90,6 +84,8 @@ const masters = [
   {
     name: "Карина",
     specialization: "Хиропластический массаж",
+    imgMaster: mastersImgs['/assets/img/masters/Karina.jpg'].default,
+    img: servicesImgs['/assets/img/services/хиропластика.png'].default,
     description: `Имеет ярко выраженное подтягивающее воздействие на кожу лица. Проминаем мышцы и не даём им скукожиться в морщинки.Данный вид массажа делается только по тальку,для более глубокой проработки мышц.<br><br>
 
       Для стойкого эффекта рекомендуется проходить курс из 5-10 сеансов.<br><br>
@@ -105,6 +101,8 @@ const masters = [
   {
     name: "Карина",
     specialization: "Антицелюлитный массаж",
+    imgMaster: mastersImgs['/assets/img/masters/Karina.jpg'].default,
+    img: servicesImgs['/assets/img/services/целюлит.png'].default,
     description: `
       Антицеллюлитный массаж глубоко прорабатывает прорабатывает подкожно-жировую клетчатку,разбивая ее, тем самым увеличивая приток и отток лимфы к межклеточной жидкости, и выводя из клеток токсины и шлаки<br><br>
 
@@ -128,6 +126,8 @@ const masters = [
   {
     name: "Карина",
     specialization: "Силовой релакс",
+    imgMaster: mastersImgs['/assets/img/masters/Karina.jpg'].default,
+    img: servicesImgs['/assets/img/services/сила.png'].default,
     description: `
       Особенности силового релакс-массажа<br><br>
 
@@ -147,6 +147,8 @@ const masters = [
   {
     name: "Карина",
     specialization: "Лимфодренажный массаж",
+    imgMaster: mastersImgs['/assets/img/masters/Karina.jpg'].default,
+    img: servicesImgs['/assets/img/services/лимфа.png'].default,
     description: `
       Какой эффект дает данный вид массажа?<br><br>
       - снижает отёчность<br>
@@ -172,6 +174,8 @@ const masters = [
   {
     name: "Карина",
     specialization: "Японский массаж (кобидо)",
+    imgMaster: mastersImgs['/assets/img/masters/Karina.jpg'].default,
+    img: servicesImgs['/assets/img/services/кобидо.png'].default,
     description: `
       Лёгкие поглаживания чередуются с быстрыми постукиваниями.<br>
       Прорабатывается: лицо, шея и зона декольте.<br><br>
@@ -190,109 +194,9 @@ const masters = [
 
 <template>
   <!-- <HeroSection /> -->
-  <AboutUs />
-  <Reviews />
-  <!-- <Services class="relative" :master="masters[0]">
-    <template #bg>
-      <FadedImg>
-        <img class="object-cover w-full h-full absolute inset-0" src="@/assets/img/services/депиляция.png">
-      </FadedImg>
-    </template>
-    <template #master>
-      <img class="object-cover w-32 h-32 rounded-full relative" src="@/assets/img/masters/Olga.jpg">
-    </template>
-  </Services>
-
-  <Services class="relative" :master="masters[1]">
-    <template #bg>
-      <FadedImg>
-        <img class="object-cover w-full h-full absolute inset-0" name="master" src="@/assets/img/services/шугаринг.png">
-      </FadedImg>
-    </template>
-    <template #master>
-      <img class="object-cover w-32 h-32 rounded-full relative" name="bg" src="@/assets/img/masters/Olga.jpg">
-    </template>
-  </Services>
-
-  <Services class="relative" :master="masters[2]">
-    <template #bg>
-      <FadedImg>
-        <img class="object-cover w-full h-full absolute inset-0" name="master"
-          src="@/assets/img/services/электроэпиляция.png">
-      </FadedImg>
-    </template>
-    <template #master>
-      <img class="object-cover w-32 h-32 rounded-full relative" name="bg" src="@/assets/img/masters/Olga.jpg">
-    </template>
-  </Services>
-
-  <Services class="relative" :master="masters[3]">
-    <template #bg>
-      <FadedImg>
-        <img class="object-cover w-full h-full absolute inset-0" name="master" src="@/assets/img/services/пм.png">
-      </FadedImg>
-    </template>
-    <template #master>
-      <img class="object-cover w-32 h-32 rounded-full relative" name="bg" src="@/assets/img/masters/Ksenia.jpg">
-    </template>
-  </Services>
-
-  <Services class="relative" :master="masters[5]">
-    <template #bg>
-      <FadedImg>
-        <img class="object-cover w-full h-full absolute inset-0" name="master"
-          src="@/assets/img/services/хиропластика.png">
-      </FadedImg>
-    </template>
-    <template #master>
-      <img class="object-cover w-32 h-32 rounded-full relative" name="bg" src="@/assets/img/masters/Karina.jpg">
-    </template>
-  </Services>
-
-  <Services class="relative" :master="masters[6]">
-    <template #bg>
-      <FadedImg>
-        <img class="object-cover w-full h-full absolute inset-0" name="master" src="@/assets/img/services/целюлит.png">
-      </FadedImg>
-    </template>
-    <template #master>
-      <img class="object-cover w-32 h-32 rounded-full relative" name="bg" src="@/assets/img/masters/Karina.jpg">
-    </template>
-  </Services>
-
-  <Services class="relative" :master="masters[7]">
-    <template #bg>
-      <FadedImg>
-        <img class="object-cover w-full h-full absolute inset-0" name="master" src="@/assets/img/services/сила.png">
-      </FadedImg>
-    </template>
-    <template #master>
-      <img class="object-cover w-32 h-32 rounded-full relative" name="bg" src="@/assets/img/masters/Karina.jpg">
-    </template>
-  </Services>
-
-  <Services class="relative" :master="masters[8]">
-    <template #bg>
-      <FadedImg>
-        <img class="object-cover w-full h-full absolute inset-0" name="master" src="@/assets/img/services/лимфа.png">
-      </FadedImg>
-    </template>
-    <template #master>
-      <img class="object-cover w-32 h-32 rounded-full relative" name="bg" src="@/assets/img/masters/Karina.jpg">
-    </template>
-  </Services>
-
-  <Services class="relative" :master="masters[9]">
-    <template #bg>
-      <FadedImg>
-        <img class="object-cover w-full h-full absolute inset-0" name="master" src="@/assets/img/services/кобидо.png">
-      </FadedImg>
-    </template>
-    <template #master>
-      <img class="object-cover w-32 h-32 rounded-full relative" name="bg" src="@/assets/img/masters/Karina.jpg">
-    </template>
-  </Services> -->
-
+  <!-- <AboutUs />x -->
+  <!-- <Reviews /> -->
+  <Services class="relative" v-for="master in masters" :master="master" />
   <!-- <School /> -->
   <!-- <Contacts /> -->
   <!-- <ClientOnly>
