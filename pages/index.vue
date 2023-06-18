@@ -190,7 +190,7 @@ const masters = [
 
 <template>
   <HeroSection />
-  <!-- <AboutUs /> -->
+  <AboutUs />
   <!-- <Reviews /> -->
   <!-- <Services class="relative" :master="masters[0]">
     <template #bg>
