@@ -189,9 +189,9 @@ const masters = [
 </script>
 
 <template>
-  <HeroSection />
+  <!-- <HeroSection /> -->
   <AboutUs />
-  <!-- <Reviews /> -->
+  <Reviews />
   <!-- <Services class="relative" :master="masters[0]">
     <template #bg>
       <FadedImg>

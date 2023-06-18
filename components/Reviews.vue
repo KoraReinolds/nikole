@@ -15,32 +15,43 @@ const reviews = [
   },
 ]
 const reviewIndex = ref(0)
-const increase = () => reviewIndex.value = (reviewIndex.value + 1) % reviews.length
-const decrease = () => reviewIndex.value = (reviewIndex.value || reviews.length) - 1
+let intervalId
+const resetInterval = () => {
+  clearInterval(intervalId)
+  intervalId = setInterval(increase, 5000)
+}
+const increase = () => {
+  resetInterval()
+  reviewIndex.value = (reviewIndex.value + 1) % reviews.length
+}
+const decrease = () => {
+  resetInterval()
+  reviewIndex.value = (reviewIndex.value || reviews.length) - 1
+}
+resetInterval()
 const r = computed(() => reviews[reviewIndex.value])
 </script>
 
 <template>
   <div class="bg-main px-8 py-16 text-xl flex flex-col text-dark justify-center items-center">
     <div class="flex items-center">
-      <h1 class="font-z text-5xl pr-6">Отзывы</h1>
-      <img class="object-cover w-24 h-24 rounded-full" src="@/assets/img/reviews.jpg" alt="Ваши отзывы">
+      <h1 class="font-m text-5xl pr-6">Отзывы</h1>
+      <img class="object-cover w-32 h-32 rounded-full" src="@/assets/img/review.png" alt="Ваши отзывы">
     </div>
     <div class="bg-dark h-[1px] w-80 my-6"></div>
     <div class="italic mb-4 text-center">Мастер
       <span class="font-bold underline cursor-pointer">{{ r.master }}</span> -
       <span class="font-bold underline cursor-pointer">{{ r.area }}</span>
     </div>
-    <div class="relative">
-      <Arrow class="cursor-pointer absolute top-1/2 -translate-y-1/2 -left-12 rotate-180" @click="decrease" />
-      <Arrow class="cursor-pointer absolute top-1/2 -translate-y-1/2 -right-12" @click="increase" />
-      <div class="w-72">
-        <div class="min-w-full text-center text-base italic">
-          {{ r.text }}
-        </div>
+    <div class="w-72 relative">
+      <Arrow class="h-full cursor-pointer absolute top-1/2 -translate-y-1/2 -left-8 rotate-180" @click="decrease" />
+      <Arrow class="h-full cursor-pointer absolute top-1/2 -translate-y-1/2 -right-8" @click="increase" />
+      <div class="min-w-full text-center text-base italic">
+        {{ r.text }}
       </div>
     </div>
-    <Btn class="mt-8 bg-secondary" link="https://vk.com/topic-147662899_49317232" title="Показать все отзывы">
+    <Btn class="mt-8 bg-secondary min-w-[340px]" link="https://vk.com/topic-147662899_49317232"
+      title="Показать все отзывы">
       <img class="w-8 h-8 ml-4" src="@/assets/img/vk.png">
     </Btn>
   </div>
