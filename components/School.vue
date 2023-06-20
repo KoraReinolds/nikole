@@ -4,7 +4,7 @@
 <template>
   <div class="bg-main px-8 py-16 text-xl flex flex-col text-dark justify-center items-center">
     <div class="flex items-center">
-      <h1 class="font-m text-6xl mr-6 text-right">Курсы и&nbspобучение</h1>
+      <h1 class="font-m text-6xl mr-6 w-40 text-right">Курсы и&nbsp;обучение</h1>
       <img class="object-cover w-24 h-24 rounded-full" src="@/assets/img/bs.jpg" alt="Школа красоты">
     </div>
     <div class="bg-dark h-[1px] w-80 my-6"></div>

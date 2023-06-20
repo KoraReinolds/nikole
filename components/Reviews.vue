@@ -1,4 +1,6 @@
 <script setup>
+import { tryOnMounted } from '@vueuse/core';
+
 const reviews = [
   {
     master: "Ольга",
@@ -30,6 +32,17 @@ const decrease = () => {
 }
 resetInterval()
 const r = computed(() => reviews[reviewIndex.value])
+const textRef = ref(null)
+const textStyle = computed(() => ({
+  right: reviewIndex.value * textRef.value?.offsetWidth + 'px'
+}))
+tryOnMounted(() => {
+  window.addEventListener('resize', () => {
+    const val = reviewIndex.value
+    reviewIndex.value = -1
+    reviewIndex.value = val
+  })
+})
 </script>
 
 <template>
@@ -39,15 +52,18 @@ const r = computed(() => reviews[reviewIndex.value])
       <img class="object-cover w-32 h-32 rounded-full" src="@/assets/img/review.png" alt="Ваши отзывы">
     </div>
     <div class="bg-dark h-[1px] w-80 my-6"></div>
-    <div class="italic mb-4 text-center">Мастер
+    <div class="italic mb-4 text-center">
+      <span>Мастер </span>
       <span class="font-bold underline cursor-pointer">{{ r.master }}</span> -
       <span class="font-bold underline cursor-pointer">{{ r.area }}</span>
     </div>
-    <div class="w-72 relative">
-      <Arrow class="h-full cursor-pointer absolute top-1/2 -translate-y-1/2 -left-8 rotate-180" @click="decrease" />
-      <Arrow class="h-full cursor-pointer absolute top-1/2 -translate-y-1/2 -right-8" @click="increase" />
-      <div class="min-w-full text-center text-base italic">
-        {{ r.text }}
+    <div class="relative w-full max-w-2xl">
+      <Arrow class="h-full cursor-pointer absolute top-1/2 -translate-y-1/2 -left-4 rotate-180" @click="decrease" />
+      <Arrow class="h-full cursor-pointer absolute top-1/2 -translate-y-1/2 -right-4" @click="increase" />
+      <div ref="textRef" class="w-full flex items-center overflow-hidden">
+        <div :style="textStyle" class="relative px-4 min-w-full text-center text-base italic" v-for="rew in reviews">
+          {{ rew.text }}
+        </div>
       </div>
     </div>
     <Btn class="mt-8 bg-secondary min-w-[340px]" link="https://vk.com/topic-147662899_49317232"

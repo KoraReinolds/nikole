@@ -193,15 +193,16 @@ const masters = [
 </script>
 
 <template>
-  <!-- <HeroSection /> -->
-  <!-- <AboutUs />x -->
+  <HeroSection />
+  <AboutUs />
   <Reviews />
-  <Services class="relative" v-for="master in masters" :master="master" />
-  <!-- <School /> -->
-  <!-- <Contacts /> -->
-  <!-- <ClientOnly>
+  <Services v-for="master in masters.slice(0, 3)" :master="master" />
+  <School />
+  <Services v-for="master in masters.slice(3)" :master="master" />
+  <Contacts />
+  <ClientOnly>
     <Map></Map>
-  </ClientOnly> -->
+  </ClientOnly>
 </template>
 
 <style lang="postcss" scoped></style>

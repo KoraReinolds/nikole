@@ -4,7 +4,7 @@
 <template>
   <div
     class="bg-black px-8 pb-24 text-xl flex flex-col lg:flex-row items-center lg:items-start text-main justify-center ">
-    <div class="grid grid-cols-2 gap-4 w-96 min-w-[386px] lg:pt-12 mr-12">
+    <div class="grid grid-cols-2 gap-4 w-96 min-w-[386px] lg:pt-12 lg:mr-12">
       <div class="h-48 bg-cover bg-[url('@/assets/img/reseption.jpg')]"></div>
       <div class="h-48 bg-cover bg-[url('@/assets/img/procedure.jpg')]"></div>
       <div class="h-48 bg-cover bg-bottom col-span-2 bg-[url('@/assets/img/chairs.jpg')]"></div>
@@ -16,13 +16,37 @@
       <p class="pt-6">Уютная атмосфера в центре Мурманска.</p>
       <p class="pt-6"><b>Вас ожидают:</b></p>
       <ul class="list-image-[url(@/assets/svg/list.svg)]">
-        <li class="pt-3.5"><b>Депиляция</b> за 15 минут БЕЗ боли от ТОП мастера с практическим опытом более 11 лет</li>
-        <li class="pt-3.5"><b>Перманентный макияж</b> всех зон от мастера-тренера с опытом 4000+ процедур</li>
-        <li class="pt-3.5"><b>СПА</b> программы, для тех, кто хочет расслабиться и отдохнуть в полной мере с пользой для
-          организма</li>
-        <li class="pt-3.5"><b>МАССАЖ</b> – направленный на улучшение эстетического вида и функционального состояния кожи
-          тела и лица</li>
-        <li class="pt-3.5"><b>Косметология</b></li>
+        <li class="pt-3.5">
+          <List class="w-4 h-4 mb-1 fill-secondary inline-block mr-2" /><b>Депиляция</b> за 15 минут БЕЗ боли от ТОП
+          мастера с
+          практическим
+          опытом более 11 лет
+        </li>
+        <li class="pt-3.5">
+          <List class="w-4 h-4 mb-1 fill-secondary inline-block mr-2" /><b>Перманентный макияж</b> всех зон от
+          мастера-тренера
+          с
+          опытом 4000+
+          процедур
+        </li>
+        <li class="pt-3.5">
+          <List class="w-4 h-4 mb-1 fill-secondary inline-block mr-2" /><b>СПА</b> программы, для тех, кто хочет
+          расслабиться и
+          отдохнуть в
+          полной мере с пользой для
+          организма
+        </li>
+        <li class="pt-3.5">
+          <List class="w-4 h-4 mb-1 fill-secondary inline-block mr-2" /><b>МАССАЖ</b> – направленный на улучшение
+          эстетического
+          вида
+          и
+          функционального состояния кожи
+          тела и лица
+        </li>
+        <li class="pt-3.5">
+          <List class="w-4 h-4 mb-1 fill-secondary inline-block mr-2" /><b>Косметология</b>
+        </li>
       </ul>
       <ul class="pt-12">
         <li>
