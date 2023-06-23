@@ -61,7 +61,7 @@ tryOnMounted(() => {
       <Arrow class="h-full cursor-pointer absolute top-1/2 -translate-y-1/2 -left-4 rotate-180" @click="decrease" />
       <Arrow class="h-full cursor-pointer absolute top-1/2 -translate-y-1/2 -right-4" @click="increase" />
       <div ref="textRef" class="w-full flex items-center overflow-hidden">
-        <div :style="textStyle" class="relative px-4 min-w-full text-center text-base italic" v-for="rew in reviews">
+        <div :style="textStyle" class="relative px-8 min-w-full text-center text-base italic" v-for="rew in reviews">
           {{ rew.text }}
         </div>
       </div>
