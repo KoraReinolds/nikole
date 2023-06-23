@@ -1,10 +1,21 @@
 <script setup>
-const props = defineProps({ link: String, title: String, icon: String })
+const props = defineProps({
+  link: String,
+  title: String,
+  type: {
+    type: String,
+    required: false,
+  }
+})
+let btnClasses = 'text-xl'
+if (props.type === 'lg') {
+  btnClasses = 'text-2xl'
+}
 </script>
 
 <template>
   <div
-    class="cursor-pointer px-4 text-xl text-dark -skew-x-8 h-12 rounded-2xl font-bold italic text-center bg-main flex items-center justify-center">
+    :class="[btnClasses, 'cursor-pointer px-6 py-4 text-dark rounded-2xl font-bold italic text-center bg-main flex items-center justify-center']">
     <a :href="props.link">
       {{ props.title }}
     </a>

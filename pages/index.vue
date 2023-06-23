@@ -234,12 +234,12 @@ const masters = ref([
 
 <template>
   <HeroSection />
-  <AboutUs />
-  <Reviews />
-  <Services :master="masters[0]" />
-  <Services :master="masters[1]" />
-  <School />
-  <Services :master="masters[2]" />
+  <!-- <AboutUs /> -->
+  <!-- <Reviews /> -->
+  <!-- <Services :master="masters[0]" /> -->
+  <!-- <Services :master="masters[1]" /> -->
+  <!-- <School /> -->
+  <!-- <Services :master="masters[2]" /> -->
   <!-- <Contacts />
   <ClientOnly>
     <Map></Map>
