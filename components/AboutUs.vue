@@ -31,17 +31,6 @@ const aboutList = [
     text: ``,
   },
 ]
-const style = ref({ paddingBottom: '100%' })
-window.addEventListener('resize', () => {
-  const width = window.document.body.offsetWidth
-  let paddingBottom = '100%'
-  if (width > 1024) {
-    paddingBottom = '300%'
-  } else if (width > 639) {
-    paddingBottom = '33%'
-  }
-  style.value = { paddingBottom }
-})
 </script>
 
 <template>
@@ -75,7 +64,7 @@ window.addEventListener('resize', () => {
       <p>Приходите и мы позаботимся о Вашем теле, чтобы Вашей душе было приятно и драйвово в нем жить!</p>
 
     </div>
-    <div class="w-full h-0 relative lg:col-span-4" :style="style">
+    <div class="w-full h-0 relative lg:col-span-4 pb-[100%] sm:pb-[33%] lg:pb-[300%]">
       <div class="absolute inset-0 grid grid-cols-2 sm:grid-cols-3 lg:grid-rows-3 lg:grid-cols-1 gap-4 w-full">
         <div class="bg-cover bg-[url('@/assets/img/reseption.jpg')]"></div>
         <div class="bg-cover bg-[url('@/assets/img/procedure.jpg')]"></div>

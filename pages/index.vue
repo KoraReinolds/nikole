@@ -233,7 +233,7 @@ const masters = ref([
 </script>
 
 <template>
-  <HeroSection />
+  <!-- <HeroSection /> -->
   <AboutUs />
   <!-- <Reviews /> -->
   <!-- <Services :master="masters[0]" /> -->
