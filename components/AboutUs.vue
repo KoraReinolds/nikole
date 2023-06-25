@@ -1,70 +1,86 @@
 <script setup>
+const aboutList2 = [
+  {
+    title: 'ТОЛЬКО',
+    text: `высококачественные сертифицированные продукты и инструменты`,
+  },
+  {
+    title: 'БЕЗОПАСНОСТЬ',
+    text: `- одноразовые инструменты, вскрываются и утилизируются при Вас`,
+  },
+]
+const aboutList = [
+  {
+    title: 'Депиляция',
+    text: `за 15 минут БЕЗ боли от ТОП мастера с практическим опытом более 11 лет`,
+  },
+  {
+    title: 'Перманентный макияж',
+    text: `всех зон от мастера-тренера с опытом 4000+ процедур`,
+  },
+  {
+    title: 'СПА',
+    text: `программы, для тех, кто хочет расслабиться и отдохнуть в полной мере с пользой для организма`,
+  },
+  {
+    title: 'МАССАЖ',
+    text: `– направленный на улучшение эстетического вида и функционального состояния кожи тела и лица`,
+  },
+  {
+    title: 'Косметология',
+    text: ``,
+  },
+]
+const style = ref({ paddingBottom: '100%' })
+window.addEventListener('resize', () => {
+  const width = window.document.body.offsetWidth
+  let paddingBottom = '100%'
+  if (width > 1024) {
+    paddingBottom = '300%'
+  } else if (width > 639) {
+    paddingBottom = '33%'
+  }
+  style.value = { paddingBottom }
+})
 </script>
 
 <template>
   <div
-    class="bg-black px-8 pb-24 text-xl flex flex-col lg:flex-row items-center lg:items-start text-main justify-center ">
-    <div class="grid grid-cols-2 gap-4 w-96 min-w-[386px] lg:pt-12 lg:mr-12">
-      <div class="h-48 bg-cover bg-[url('@/assets/img/reseption.jpg')]"></div>
-      <div class="h-48 bg-cover bg-[url('@/assets/img/procedure.jpg')]"></div>
-      <div class="h-48 bg-cover bg-bottom col-span-2 bg-[url('@/assets/img/chairs.jpg')]"></div>
+    class="bg-black px-4 sm:px-12 lg:px-16 pb-12 sm:pb-16 lg:pb-24 text-main grid grid-cols-1 gap-12 sm:gap-16 lg:grid-cols-12 lg:gap-4 max-w-7xl mx-auto">
+    <div
+      class="max-w-prose overflow-auto text-base sm:text-xl flex flex-col gap-4 lg:gap-6 sm:order-last lg:col-span-7 lg:col-end-13">
+      <h1 class="font-m text-6xl text-secondary">О нас</h1>
+      <p>Профстудия «Николе» - верный шаг на пути к гармонии души и тела!</p>
+      <div class="bg-secondary h-[1px] w-48"></div>
+      <p>Уютная атмосфера в центре Мурманска.</p>
+
+      <h5 class="font-bold text-xl sm:text-2xl my-4">Вас ожидают:</h5>
+      <ul class="list-image-[url(@/assets/svg/list.svg)] flex flex-col gap-2">
+        <li v-for="item in aboutList">
+          <List class="w-4 h-4 mb-1 fill-secondary inline-block mr-2" />
+          <b>{{ item.title }}</b>
+          {{ item.text }}
+        </li>
+      </ul>
+
+      <ul class="py-4 flex flex-col gap-2">
+        <li v-for="item in aboutList2">
+          ✅ <b>{{ item.title }}</b>
+          {{ item.text }}
+        </li>
+      </ul>
+
+      <p>Бесплатный wi-fi<br>☕️Вкусный чай/кофе с конфетами</p>
+
+      <p>Приходите и мы позаботимся о Вашем теле, чтобы Вашей душе было приятно и драйвово в нем жить!</p>
+
     </div>
-    <div class="max-w-prose">
-      <h1 class="font-m text-6xl text-secondary pt-12">О нас</h1>
-      <p class="pt-12">Профстудия «Николе» - верный шаг на пути к гармонии души и тела!</p>
-      <div class="bg-secondary h-[1px] w-48 mt-6"></div>
-      <p class="pt-6">Уютная атмосфера в центре Мурманска.</p>
-      <p class="pt-6"><b>Вас ожидают:</b></p>
-      <ul class="list-image-[url(@/assets/svg/list.svg)]">
-        <li class="pt-3.5">
-          <List class="w-4 h-4 mb-1 fill-secondary inline-block mr-2" /><b>Депиляция</b> за 15 минут БЕЗ боли от ТОП
-          мастера с
-          практическим
-          опытом более 11 лет
-        </li>
-        <li class="pt-3.5">
-          <List class="w-4 h-4 mb-1 fill-secondary inline-block mr-2" /><b>Перманентный макияж</b> всех зон от
-          мастера-тренера
-          с
-          опытом 4000+
-          процедур
-        </li>
-        <li class="pt-3.5">
-          <List class="w-4 h-4 mb-1 fill-secondary inline-block mr-2" /><b>СПА</b> программы, для тех, кто хочет
-          расслабиться и
-          отдохнуть в
-          полной мере с пользой для
-          организма
-        </li>
-        <li class="pt-3.5">
-          <List class="w-4 h-4 mb-1 fill-secondary inline-block mr-2" /><b>МАССАЖ</b> – направленный на улучшение
-          эстетического
-          вида
-          и
-          функционального состояния кожи
-          тела и лица
-        </li>
-        <li class="pt-3.5">
-          <List class="w-4 h-4 mb-1 fill-secondary inline-block mr-2" /><b>Косметология</b>
-        </li>
-      </ul>
-      <ul class="pt-12">
-        <li>
-          ✅ <b>ТОЛЬКО</b> высококачественные сертифицированные продукты и инструменты
-        </li>
-        <li class="pt-3.5">
-          ✅ <b>БЕЗОПАСНОСТЬ</b> - одноразовые инструменты, вскрываются и утилизируются при Вас
-        </li>
-      </ul>
-      <p class="pt-12">
-        Бесплатный wi-fi
-        <br>
-        ☕️Вкусный чай/кофе с конфетами
-      </p>
-      <p class="pt-12">
-        Приходите и мы позаботимся о Вашем теле, чтобы Вашей душе было приятно и драйвово в нем жить!
-      </p>
-      <Btn class="mt-12 w-48" title="Записаться" link="https://dikidi.ru/ru/profile/profstudiya_nikole_715159/" />
+    <div class="w-full h-0 relative lg:col-span-4" :style="style">
+      <div class="absolute inset-0 grid grid-cols-2 sm:grid-cols-3 lg:grid-rows-3 lg:grid-cols-1 gap-4 w-full">
+        <div class="bg-cover bg-[url('@/assets/img/reseption.jpg')]"></div>
+        <div class="bg-cover bg-[url('@/assets/img/procedure.jpg')]"></div>
+        <div class="bg-cover bg-bottom col-span-2 sm:col-span-1 bg-[url('@/assets/img/chairs.jpg')]"></div>
+      </div>
     </div>
   </div>
 </template>

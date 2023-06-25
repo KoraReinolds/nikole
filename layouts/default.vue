@@ -4,8 +4,4 @@
     </div>
 </template>
 
-<style lang="postcss" scoped>
-.layout__container {
-    @apply bg-red-100;
-}
-</style>
+<style lang="postcss" scoped></style>
