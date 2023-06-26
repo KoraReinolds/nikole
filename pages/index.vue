@@ -235,7 +235,7 @@ const masters = ref([
 <template>
   <!-- <HeroSection /> -->
   <AboutUs />
-  <!-- <Reviews /> -->
+  <Reviews />
   <!-- <Services :master="masters[0]" /> -->
   <!-- <Services :master="masters[1]" /> -->
   <!-- <School /> -->
