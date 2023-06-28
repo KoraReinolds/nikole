@@ -35,51 +35,63 @@ const descHidden = ref(false)
 
   </div>
 
-  <!-- <div class="max-w-2xl">
+  <div class="max-w-7xl px-4 lg:px-16 mx-auto grid grid-cols-12 mb-12 md:mb-16">
 
-    <div class="bg-secondary h-[1px] w-96 my-6 max-w-2xl" />
+    <div
+      :class="['col-span-12 sm:col-span-8 lg:col-span-12 col-start-0 sm:col-start-3 lg:col-start-0 w-full cursor-pointer relative lg:h-full lg:grid lg:grid-cols-12']">
 
-    <div v-if="master.description" @click="descHidden = true"
-      :class="['flex justify-center w-full cursor-pointer relative', descHidden ? '' : 'h-24 overflow-hidden']">
-      <div v-if="!descHidden"
-        class="w-full h-full bg-gradient-to-t from-black via-transparent via-30% absolute inset-0" />
-      <Arrow v-if="!descHidden" class="absolute rotate-90 top-16 z-10 left-1/2 -translate-x-1/2" />
-      <div class="absolute h-10 cursor-pointer w-full top-16"></div>
-      <div class="text-main px-8 text-base max-w-prose" v-html="master.description"></div>
-    </div>
-
-    <div class="bg-secondary h-[1px] w-96 my-6" />
-
-    <ul class="pt-6 w-full max-w-2xl">
-      <li v-for="item in master.services"
-        class="cursor-pointer leading-9 flex flex-col justify-between items-center px-4 text-main">
-
-        <div class="hover:bg-dark font-bold flex flex-row items-center justify-center w-full py-2 px-4"
-          @click="item.opened = !item.opened">
-          <List class="w-4 h-4 fill-secondary mr-4" />
-          <div class="text-left w-full h-16 flex items-center">
-            {{ item.name }}
-          </div>
-          <Arrow :class="['fill-secondary w-10 top-16 left-1/2', item.opened ? '-rotate-90' : 'rotate-90']" />
+      <div v-if="master.description" class="col-span-6">
+        <div @click="descHidden = true" :class="['h-20 lg:h-full relative overflow-hidden lg:overflow-auto']">
+          <div v-if="!descHidden"
+            class="w-full absolute bg-gradient-to-t from-black via-transparent via-90% inset-0 lg:hidden" />
+          <div class="text-main text-base max-w-prose" v-html="master.description"></div>
         </div>
 
-        <ul v-if="item.opened" class="w-full px-10 py-4">
-          <li v-for="service in item.list" class="odd:bg-dark px-2 w-full flex justify-between">
-            <div>
-              {{ service.name }}
+        <div @click="descHidden = true" v-if="!descHidden"
+          class="text-secondary flex justify-start items-center top-16 h-6 col-span-12 lg:hidden">
+          <span class="text-sm mr-2">Больше</span>
+          <Arrow class="fill-secondary rotate-90 z-10 lg:hidden w-2" />
+        </div>
+      </div>
+
+      <div class="col-span-5 col-end-13">
+
+        <ul class="w-full max-w-2xl col-span-12 py-8">
+          <li v-for="item in master.services"
+            class="cursor-pointer leading-9 flex flex-col justify-between items-center text-main">
+
+            <div class="hover:bg-dark font-bold flex flex-row items-center justify-center w-full py-3 px-2 sm:px-4"
+              @click="item.opened = !item.opened">
+              <List class="w-4 h-4 fill-secondary mr-4" />
+              <div class="text-left w-full flex items-center text-xl">
+                {{ item.name }}
+              </div>
+              <Arrow :class="['fill-secondary h-6 top-16 left-1/2', item.opened ? '-rotate-90' : 'rotate-90']" />
             </div>
-            <div class="text-secondary min-w-[100px] text-right">
-              {{ service.price }}&nbsp;{{ service.post || 'р' }}
-            </div>
+
+            <ul v-if="item.opened" class="w-full px-6 py-4">
+              <li v-for="service in item.list"
+                class="odd:bg-dark px-2 py-2 w-full flex justify-between items-center text-sm">
+                <div>
+                  {{ service.name }}
+                </div>
+                <div class="text-secondary min-w-[100px] text-right">
+                  {{ service.price }}&nbsp;{{ service.post || 'р' }}
+                </div>
+              </li>
+            </ul>
+
           </li>
         </ul>
 
-      </li>
-    </ul>
+        <Btn class="ml-8 bg-main" link="https://dikidi.ru/ru/profile/profstudiya_nikole_715159/" title="Записаться">
+        </Btn>
 
-    <Btn class="mt-8 bg-main" link="https://dikidi.ru/ru/profile/profstudiya_nikole_715159/" title="Записаться">
-    </Btn>
-  </div> -->
+      </div>
+
+    </div>
+
+  </div>
 </template>
 
 <style lang="postcss" scoped></style>

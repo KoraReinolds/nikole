@@ -43,7 +43,6 @@ tryOnMounted(() => {
     reviewIndex.value = -1
     reviewIndex.value = val
   })
-  console.log(textStyle.value, reviewIndex.value, textRef.value)
 })
 </script>
 
