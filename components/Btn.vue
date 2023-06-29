@@ -20,17 +20,15 @@ let iconClasses = 'w-6 h-6 ml-3'
 if (props.type === 'lg') {
   iconClasses = 'w-8 h-8 ml-4'
 }
-console.log(props.type, btnClasses, props.icon)
 </script>
 
 <template>
-  <div
-    :class="[btnClasses.height, 'max-w-max cursor-pointer px-6 text-dark rounded-2xl font-bold italic text-center bg-main flex items-center justify-center text-2xl']">
-    <a :class="btnClasses.fontSize" :href="props.link">
-      {{ props.title }}
-    </a>
+  <component :is="link ? 'a' : 'button'"
+    :class="[btnClasses.fontSize, btnClasses.height, 'max-w-max cursor-pointer px-6 rounded-2xl font-bold italic text-center flex items-center justify-center text-2xl']"
+    :href="props.link">
+    {{ props.title }}
     <img v-if="props.icon" :class="iconClasses" :src="props.icon">
-  </div>
+  </component>
 </template>
 
 <style lang="postcss" scoped></style>

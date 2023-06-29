@@ -35,7 +35,7 @@ const descHidden = ref(false)
 
   </div>
 
-  <div class="max-w-7xl px-4 lg:px-16 mx-auto grid grid-cols-12 mb-12 md:mb-16">
+  <div class="max-w-7xl px-4 lg:px-16 mx-auto grid grid-cols-12 mb-12 md:mb-16 lg:mb-24">
 
     <div
       :class="['col-span-12 sm:col-span-8 lg:col-span-12 col-start-0 sm:col-start-3 lg:col-start-0 w-full cursor-pointer relative lg:h-full lg:grid lg:grid-cols-12']">
@@ -56,7 +56,7 @@ const descHidden = ref(false)
 
       <div class="col-span-5 col-end-13">
 
-        <ul class="w-full max-w-2xl col-span-12 py-8">
+        <ul class="w-full max-w-2xl col-span-12 pb-8 pt-8 lg:pt-0">
           <li v-for="item in master.services"
             class="cursor-pointer leading-9 flex flex-col justify-between items-center text-main">
 
@@ -66,10 +66,11 @@ const descHidden = ref(false)
               <div class="text-left w-full flex items-center text-xl">
                 {{ item.name }}
               </div>
-              <Arrow :class="['fill-secondary h-6 top-16 left-1/2', item.opened ? '-rotate-90' : 'rotate-90']" />
+              <Arrow
+                :class="['fill-secondary h-6 top-16 left-1/2 lg:hidden', item.opened ? '-rotate-90' : 'rotate-90']" />
             </div>
 
-            <ul v-if="item.opened" class="w-full px-6 py-4">
+            <ul :class="['w-full px-6 py-4 lg:block', !item.opened && 'hidden']">
               <li v-for="service in item.list"
                 class="odd:bg-dark px-2 py-2 w-full flex justify-between items-center text-sm">
                 <div>
