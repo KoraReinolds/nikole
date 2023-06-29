@@ -4,7 +4,8 @@ const phone = ref('')
 const formSended = ref(false)
 const formValid = computed(() => name.value && phone.value)
 
-const sendMsg = () => {
+const sendMsg = async () => {
+  await useFetch(`/api/sendMsg?name=${name.value}&phone=${phone.value}`);
   name.value = ""
   phone.value = ""
   formSended.value = true
