@@ -281,15 +281,20 @@ const masters = ref([
         opened: false,
       },
     ],
-  }])
-
+  }]
+)
+const contact = ref(null)
+const scrollToRef = () => {
+  contact.value.scrollIntoView({ behavior: 'smooth' });
+}
 </script>
 
 <template>
-  <HeroSection />
+  <HeroSection @contact="scrollToRef" />
   <AboutUs />
   <Reviews />
-  <Services v-for="master in masters" :master="master" />
+  <Services @contact="scrollToRef" v-for="master in masters" :master="master" />
+  <div ref="contact"></div>
   <Contacts />
   <ClientOnly>
     <Map></Map>

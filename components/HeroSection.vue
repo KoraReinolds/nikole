@@ -1,4 +1,5 @@
 <script setup>
+defineEmits(['contact'])
 </script>
 
 <template>
@@ -17,8 +18,7 @@
           <br>
           <span class="text-2xl sm:text-3xl">на первое посещение</span>
         </div>
-        <Btn class="mt-12 bg-main" type="lg" link="https://dikidi.ru/ru/profile/profstudiya_nikole_715159/"
-          title="Получить скидку" />
+        <Btn class="mt-12 bg-main" type="lg" @click="$emit('contact')" title="Получить скидку" />
       </div>
     </div>
   </div>
