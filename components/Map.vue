@@ -22,11 +22,14 @@ const markerOptions = {
 </script>
 
 <template>
-  <section class="bg-black pt-16 text-center flex flex-col justify-center items-center md:flex-row gap-8 md:gap-16">
-    <div>
+  <section
+    class="bg-black pt-16 md:pb-16 text-center flex flex-col justify-center items-center md:flex-row gap-8 md:gap-16">
+    <div class="flex flex-col items-center text-xl text-main md:items-end">
       <h1 class="font-m text-5xl text-secondary">Как нас найти?</h1>
-      <p class="pt-8 text-2xl text-main">Мурманск</p>
-      <p class="text-2xl text-main">ул.Володарского, 13</p>
+      <div class="bg-main h-[1px] w-48 my-6"></div>
+      <p>Мурманск</p>
+      <p>ул.Володарского, 13</p>
+      <p>Пн-Вс: с 10:00 до 21:00</p>
     </div>
     <div v-if="isMounted" class="w-full md:w-[400px]">
       <yandex-map :settings="settings" :coords="markerCoords" zoom="17" :cluster-options="{
@@ -38,8 +41,6 @@ const markerOptions = {
     </div>
   </section>
 </template>
-
-
 
 <style>
 .ymap-container {
