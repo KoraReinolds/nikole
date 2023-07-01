@@ -44,7 +44,7 @@ const aboutList = [
       <p>Уютная атмосфера в центре Мурманска.</p>
 
       <h5 class="font-bold text-xl sm:text-2xl my-4">Вас ожидают:</h5>
-      <ul class="list-image-[url(@/assets/svg/list.svg)] flex flex-col gap-2">
+      <ul class="flex flex-col gap-2">
         <li v-for="item in aboutList">
           <List class="w-4 h-4 mb-1 fill-secondary inline-block mr-2" />
           <b>{{ item.title }}</b>
