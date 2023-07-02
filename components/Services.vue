@@ -3,7 +3,7 @@ const props = defineProps({
   master: Object,
 })
 const descHidden = ref(false)
-defineEmits(['contact'])
+defineEmits(['scroll'])
 </script>
 
 <template>
@@ -86,7 +86,7 @@ defineEmits(['contact'])
           </li>
         </ul>
 
-        <Btn class="ml-8 bg-main" @click="$emit('contact')" title="Записаться">
+        <Btn class="ml-8 bg-main" @click="$emit('scroll')" title="Записаться">
         </Btn>
 
       </div>

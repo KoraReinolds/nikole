@@ -77,6 +77,7 @@ const specializations = {
 
 const masters = ref([
   {
+    ref: 'olga',
     name: "Ольга",
     specialization: 'Мастер депиляции',
     imgMaster: mastersImgs['/assets/img/masters/Olga.jpg'].default,
@@ -124,6 +125,7 @@ const masters = ref([
       },
     ],
   }, {
+    ref: 'ksenia',
     name: "Ксения",
     specialization: 'Мастер перманентного макияжа',
     imgMaster: mastersImgs['/assets/img/masters/Ksenia.jpg'].default,
@@ -175,6 +177,7 @@ const masters = ref([
       },
     ],
   }, {
+    ref: 'natalia',
     name: "Наталия",
     specialization: 'Мастер перманентного макияжа',
     imgMaster: mastersImgs['/assets/img/masters/Natalia.jpg'].default,
@@ -225,6 +228,7 @@ const masters = ref([
       },
     ],
   }, {
+    ref: 'karina',
     name: "Карина",
     specialization: 'Мастер массажа',
     imgMaster: mastersImgs['/assets/img/masters/Karina.jpg'].default,
@@ -284,16 +288,29 @@ const masters = ref([
   }]
 )
 const contact = ref(null)
-const scrollToRef = () => {
-  contact.value.scrollIntoView({ behavior: 'smooth' });
+const olga = ref(null)
+const ksenia = ref(null)
+const natalia = ref(null)
+const karina = ref(null)
+const masterRefs = {
+  olga, ksenia, natalia, karina
+}
+const scrollToRef = (html) => {
+  html.scrollIntoView({ behavior: 'smooth' });
+}
+const scrollFromReview = (masterName) => {
+  scrollToRef(masterRefs[masterName].value[0])
 }
 </script>
 
 <template>
-  <HeroSection @contact="scrollToRef" />
+  <HeroSection @scroll="scrollToRef(contact)" />
   <AboutUs />
-  <Reviews />
-  <Services @contact="scrollToRef" v-for="master in masters" :master="master" />
+  <Reviews @scroll="scrollFromReview($event)" />
+  <template v-for="master in masters">
+    <div :ref="master.ref"></div>
+    <Services @scroll="scrollToRef(master.ref)" :master="master" />
+  </template>
   <div ref="contact"></div>
   <Contacts />
   <ClientOnly>

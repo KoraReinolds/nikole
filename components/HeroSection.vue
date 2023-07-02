@@ -1,5 +1,5 @@
 <script setup>
-defineEmits(['contact'])
+defineEmits(['scroll'])
 </script>
 
 <template>
@@ -18,7 +18,7 @@ defineEmits(['contact'])
           <br>
           <span class="text-2xl sm:text-3xl">на первое посещение</span>
         </div>
-        <Btn class="mt-12 bg-main" type="lg" @click="$emit('contact')" title="Получить скидку" />
+        <Btn class="mt-12 bg-main" type="lg" @click="$emit('scroll')" title="Получить скидку" />
       </div>
     </div>
   </div>

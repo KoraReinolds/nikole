@@ -1,17 +1,21 @@
 <script setup>
 import { tryOnMounted } from '@vueuse/core';
 const socialsImgs = import.meta.globEager('@/assets/img/socials/*.png');
+defineEmits(['scroll'])
 
 const reviews = [
   {
+    ref: "olga",
     master: "Ольга",
     area: "Депиляция",
     text: "Спасибо за чудесно проведенное время и результат!!!\n Безболезненно, будто на массаж ходила!)))"
   }, {
+    ref: "ksenia",
     master: "Ксения",
     area: "Макияж",
     text: "Моему счастью нет предела! Я наконец то нашла мастера, который из работ не очень толковых мастеров сделала шикарные, а главное естественные брови! Ксюша - большая умничка! Брови - это твое)"
   }, {
+    ref: "karina",
     master: "Карина",
     area: "Массаж",
     text: "Добрый день, Карина прекрасный специалист своего дела! Во время сеанса забываешь обо всем и отключаешься от реальности, а сильные, нежные и чувственные руки помогают расслабить все мышцы тела и снять всё напряжение"
@@ -53,7 +57,7 @@ tryOnMounted(() => {
       <img class="object-cover w-32 h-32 rounded-full" src="@/assets/img/review.png" alt="Ваши отзывы">
     </div>
     <div class="bg-dark h-[1px] w-48 mx-auto"></div>
-    <div class="italic text-center">
+    <div class="italic text-center" @click="$emit('scroll', r.ref)">
       Мастер
       <span class="font-bold underline cursor-pointer">{{ r.master }}</span>
       -
