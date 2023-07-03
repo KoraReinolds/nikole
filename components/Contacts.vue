@@ -5,7 +5,7 @@ const formSended = ref(false)
 const formValid = computed(() => name.value && phone.value)
 
 const sendMsg = async () => {
-  await useFetch(`/api/sendMsg?name=${name.value}&phone=${phone.value}`);
+  await useFetch(`/_nuxt/api/sendMsg?name=${name.value}&phone=${phone.value}`);
   name.value = ""
   phone.value = ""
   formSended.value = true
