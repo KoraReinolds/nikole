@@ -2,7 +2,10 @@
 export default defineNuxtConfig({
   ssr: true,
 
-  nitro: { compressPublicAssets: true },
+  nitro: {
+    compressPublicAssets: true,
+    preset: "vercel",
+  },
 
   modules: [
     ['@nuxtjs/tailwindcss'],
