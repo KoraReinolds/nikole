@@ -6,7 +6,6 @@ const url = `https://api.telegram.org/bot${token}/sendMessage`;
 export default defineEventHandler(async (event) => {
   const query = getQuery(event);
   const { name, phone } = query;
-  console.log(query, token, chatId)
 
   const res = await fetch(url, {
     method: 'POST',
@@ -20,6 +19,6 @@ export default defineEventHandler(async (event) => {
   })
 
   return {
-    token, chatId, res
+    res
   }
 })
