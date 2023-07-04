@@ -8,7 +8,7 @@ export default defineEventHandler(async (event) => {
   const { name, phone } = query;
   console.log(query, token, chatId)
 
-  await fetch(url, {
+  const res = await fetch(url, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
@@ -20,6 +20,6 @@ export default defineEventHandler(async (event) => {
   })
 
   return {
-    hello: 'world'
+    token, chatId, res
   }
 })
