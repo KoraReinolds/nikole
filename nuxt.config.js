@@ -8,6 +8,13 @@ export default defineNuxtConfig({
   },
 
   modules: [
+    ['@artmizu/yandex-metrika-nuxt', {
+      id: 94226945, initParams: {
+        clickmap: true,
+        trackLinks: true,
+        accurateTrackBounce: true
+      }
+    }],
     ['@nuxtjs/tailwindcss'],
     ['@pinia/nuxt', { autoImports: ['defineStore', 'acceptHMRUpdate'] }]
   ],

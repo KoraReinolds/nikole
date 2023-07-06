@@ -11,6 +11,7 @@
     "preview": "nuxt preview"
   },
   "dependencies": {
+    "@artmizu/yandex-metrika-nuxt": "^1.0.2",
     "@nuxtjs/tailwindcss": "latest",
     "@pinia/nuxt": "latest",
     "@vueuse/core": "latest",
