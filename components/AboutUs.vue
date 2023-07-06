@@ -35,7 +35,7 @@ const aboutList = [
 
 <template>
   <div
-    class="bg-black px-4 sm:px-12 lg:px-16 pb-12 sm:pb-16 lg:pb-24 text-main grid grid-cols-1 gap-12 sm:gap-16 lg:grid-cols-12 lg:gap-4 max-w-7xl mx-auto">
+    class="bg-black pt-4 px-4 sm:px-12 lg:px-16 pb-12 sm:pb-16 lg:pb-24 text-main grid grid-cols-1 gap-12 sm:gap-16 lg:grid-cols-12 lg:gap-4 max-w-7xl mx-auto">
     <div
       class="max-w-prose overflow-auto text-base sm:text-xl flex flex-col gap-4 lg:gap-6 sm:order-last lg:col-span-7 lg:col-end-13">
       <h1 class="font-m text-6xl text-secondary">О нас</h1>
