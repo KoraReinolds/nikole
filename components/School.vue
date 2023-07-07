@@ -13,7 +13,7 @@
       профессиональным
       мастером
     </div>
-    <Btn class="mt-8 bg-secondary" link="https://vk.com/beaut_school51" title="Перейти в группу школы">
+    <Btn class="mt-8 bg-secondary" href="https://vk.com/beaut_school51" title="Перейти в группу школы">
       <img class="w-8 h-8 ml-4" src="@/assets/img/vk.png">
     </Btn>
   </div>

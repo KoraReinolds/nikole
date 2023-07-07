@@ -1,6 +1,6 @@
 <script setup>
 const props = defineProps({
-  link: String,
+  href: String,
   title: String,
   icon: String,
   type: {
@@ -23,9 +23,9 @@ if (props.type === 'lg') {
 </script>
 
 <template>
-  <component :is="link ? 'a' : 'button'"
+  <component :is="href ? 'a' : 'button'"
     :class="[btnClasses.fontSize, btnClasses.height, 'max-w-max cursor-pointer px-6 rounded-2xl font-bold italic text-center flex items-center justify-center text-2xl']"
-    :href="props.link">
+    :href="props.href">
     {{ props.title }}
     <img v-if="props.icon" :class="iconClasses" :src="props.icon">
   </component>

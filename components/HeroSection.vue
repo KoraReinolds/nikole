@@ -1,5 +1,4 @@
 <script setup>
-defineEmits(['scroll'])
 const isMobile = ref(true)
 if (process.client) {
   isMobile.value = useMobile()
@@ -22,7 +21,7 @@ if (process.client) {
           <br>
           <span class="text-2xl sm:text-3xl">на первое посещение</span>
         </div>
-        <Btn class="mt-12 bg-main" :type="!isMobile && 'lg'" @click="$emit('scroll')" title="Получить скидку" />
+        <Btn class="mt-12 bg-main" :type="!isMobile && 'lg'" href="#contacts" title="Получить скидку" />
       </div>
     </div>
   </div>

@@ -13,7 +13,7 @@ const sendMsg = async () => {
 </script>
 
 <template>
-  <div class="bg-main px-8 py-16 text-xl flex flex-col gap-6 text-dark justify-center items-center">
+  <div id="contacts" class="bg-main px-8 py-16 text-xl flex flex-col gap-6 text-dark justify-center items-center">
     <h1 class="font-m text-5xl">Как записаться?</h1>
 
     <div class="bg-dark h-[1px] w-48"></div>

@@ -74,7 +74,6 @@ const specializations = {
     { name: '60 минут', price: 2400 },
   ]
 }
-
 const masters = ref([
   {
     ref: 'olga',
@@ -288,31 +287,16 @@ const masters = ref([
   }
 ]
 )
-const contact = ref(null)
-const olga = ref(null)
-const ksenia = ref(null)
-const natalia = ref(null)
-const karina = ref(null)
-const masterRefs = {
-  olga, ksenia, natalia, karina
-}
 const scrollToRef = (html) => {
   html.scrollIntoView({ behavior: 'smooth' });
-}
-const scrollFromReview = (masterName) => {
-  scrollToRef(masterRefs[masterName].value[0])
 }
 </script>
 
 <template>
-  <HeroSection @scroll="scrollToRef(contact)" />
+  <HeroSection />
   <AboutUs />
-  <Reviews @scroll="scrollFromReview($event)" />
-  <template v-for="master in masters">
-    <div :ref="master.ref"></div>
-    <Services @scroll="scrollToRef(master.ref)" :master="master" />
-  </template>
-  <div ref="contact"></div>
+  <Reviews />
+  <Services v-for="master in masters" :master="master" />
   <Contacts />
   <ClientOnly>
     <Map></Map>

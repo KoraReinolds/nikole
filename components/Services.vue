@@ -3,11 +3,10 @@ const props = defineProps({
   master: Object,
 })
 const descHidden = ref(false)
-defineEmits(['scroll'])
 </script>
 
 <template>
-  <div class="flex flex-col justify-center items-center bg-black text-xl text-secondary relative">
+  <div class="flex flex-col justify-center items-center bg-black text-xl text-secondary relative" :id="master.ref">
 
     <FadedImg v-if="master.img">
       <img class="object-cover w-full h-[360px] sm:h-[500px] absolute inset-0" :src="master.img">
@@ -86,7 +85,7 @@ defineEmits(['scroll'])
           </li>
         </ul>
 
-        <Btn class="ml-8 bg-main" @click="$emit('scroll')" title="Записаться">
+        <Btn class="ml-8 bg-main" href="#contacts" title="Записаться">
         </Btn>
 
       </div>

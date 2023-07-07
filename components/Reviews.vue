@@ -1,7 +1,6 @@
 <script setup>
 import { tryOnMounted } from '@vueuse/core';
 const socialsImgs = import.meta.globEager('@/assets/img/socials/*.png');
-defineEmits(['scroll'])
 const reviewImgs = import.meta.globEager('@/assets/img/reviews/*.jpg');
 
 const reviews = [
@@ -67,12 +66,12 @@ tryOnMounted(() => {
       <img class="object-cover w-32 h-32 rounded-full" src="@/assets/img/review.png" alt="Ваши отзывы">
     </div>
     <div class="bg-dark h-[1px] w-48 mx-auto"></div>
-    <div class="italic text-center" @click="$emit('scroll', r.ref)">
+    <a class="italic text-center" :href="`#${r.ref}`">
       Мастер
       <span class="font-bold underline cursor-pointer">{{ r.master }}</span>
       -
       <span class="font-bold underline cursor-pointer">{{ r.area }}</span>
-    </div>
+    </a>
     <div class="flex flex-col gap-8 items-center w-full max-w-md">
 
       <div class="flex flex-row justify-center items-center w-full gap-4">
@@ -86,7 +85,7 @@ tryOnMounted(() => {
         <Arrow class="h-full cursor-pointer" @click="increase" />
       </div>
 
-      <Btn class="bg-secondary text-sm grow-0" link="https://vk.com/topic-147662899_49317232" title="Показать все отзывы"
+      <Btn class="bg-secondary text-sm grow-0" href="https://vk.com/topic-147662899_49317232" title="Показать все отзывы"
         :icon="socialsImgs['/assets/img/socials/vk.png'].default">
       </Btn>
 
