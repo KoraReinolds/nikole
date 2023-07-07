@@ -60,24 +60,24 @@ tryOnMounted(() => {
 </script>
 
 <template>
-  <div class="bg-main px-4 sm:px-12 lg:px-16 py-12 md:py-16 text-base text-dark flex flex-col items-center gap-6">
+  <div class="bg-main px-4 sm:px-12 lg:px-16 py-8 md:py-12 text-base text-dark flex flex-col items-center gap-4">
     <div class="flex justify-center items-center gap-4">
       <h1 class="font-m text-5xl">Отзывы</h1>
-      <img class="object-cover w-32 h-32 rounded-full" src="@/assets/img/review.png" alt="Ваши отзывы">
+      <img class="object-cover h-24 w-24 rounded-full" src="@/assets/img/review.png" alt="Ваши отзывы">
     </div>
-    <div class="bg-dark h-[1px] w-48 mx-auto"></div>
-    <a class="italic text-center" :href="`#${r.ref}`">
+    <a class="text-center" :href="`#${r.ref}`">
       Мастер
       <span class="font-bold underline cursor-pointer">{{ r.master }}</span>
       -
       <span class="font-bold underline cursor-pointer">{{ r.area }}</span>
     </a>
+    <div class="bg-dark h-[1px] w-48 mx-auto"></div>
     <div class="flex flex-col gap-8 items-center w-full max-w-md">
 
       <div class="flex flex-row justify-center items-center w-full gap-4">
         <Arrow class="h-full cursor-pointer rotate-180" @click="decrease" />
         <div ref="textRef" class="w-full flex items-center overflow-hidden">
-          <div :style="textStyle" class="relative w-full shrink-0 text-center text-base italic" v-for="review in reviews">
+          <div :style="textStyle" class="relative w-full shrink-0 text-center text-sm italic" v-for="review in reviews">
             {{ r.text }}
             <!-- <img class="object-contain h-full mx-auto" :src="r.img" alt="Ваши отзывы"> -->
           </div>
