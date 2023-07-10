@@ -1,50 +1,73 @@
 <script setup>
 const props = defineProps({
-  master: Object,
+  service: Object,
 })
 const descHidden = ref(false)
+const masterIndex = ref(0)
+const oneMaster = computed(() => props.service.masters.length === 1)
+const secondMasterIndex = computed(() => (masterIndex.value + 1) % props.service.masters.length)
 </script>
 
 <template>
-  <div class="flex flex-col justify-center items-center bg-black text-xl text-secondary relative" :id="master.ref">
+  <div class="flex flex-col justify-center items-center bg-black text-xl text-secondary relative" :id="service.ref">
 
-    <FadedImg v-if="master.img">
-      <img class="object-cover w-full h-[360px] sm:h-[500px] absolute inset-0" :src="master.img">
+    <FadedImg v-if="service.img">
+      <img class="object-cover w-full h-[360px] sm:h-[500px] absolute inset-0" :src="service.img">
     </FadedImg>
 
-    <div class="h-[360px] sm:h-[500px] w-full grid grid-cols-12 max-w-7xl px-16">
+    <div class="mt-16 mb-12 relative flex items-center gap-3">
+      <div v-if="!oneMaster" class="absolute top-1/2 -translate-y-1/2 left-0 shrink-0 w-20 h-20 flex items-center">
+        <img class="object-cover w-16 h-16 mx-auto rounded-full relative" :src="service.masters[secondMasterIndex].img">
+        <div class="backdrop-blur-[1px] w-full h-full inset-0 absolute rounded-full"></div>
+      </div>
+      <div
+        :class="['shrink-0 w-24 h-24 sm:w-40 sm:h-40 relative  rounded-full bg-dark border-secondary border-2', !oneMaster && 'ml-8']">
+        <img class="object-cover p-0.5 w-full h-full rounded-full relative" :src="service.masters[masterIndex].img">
+      </div>
+      <div class="flex flex-col gap-2">
+        <div class="flex items-center gap-2">
+          <h1 class="font-m break-words leading-12 text-4xl sm:text-5xl text-secondary relative">
+            {{ service.masters[masterIndex].name }}
+          </h1>
+          <div v-if="!oneMaster" class="border border-secondary rounded-full w-5 h-5 flex items-center justify-center">
+            <Arrow width="7" height="14" />
+          </div>
+        </div>
+        <h1 class="break-words leading-12 text-xl sm:text-2xl font-bold text-main relative">
+          {{ service.specialization }}
+        </h1>
+      </div>
+    </div>
+    <!-- <div class="h-[360px] sm:h-[500px] w-full grid grid-cols-12 max-w-7xl px-16">
 
       <div
         class="flex flex-wrap sm:flex-nowrap items-end justify-center col-start-1 sm:col-start-3 lg:col-start-1 col-span-12 sm:col-span-8 lg:col-span-6 mt-auto mb-12 lg:mb-16">
-        <div class="shrink-0 w-28 h-28 sm:w-40 sm:h-40 float-left mr-4">
-          <img class="object-cover w-full h-full rounded-full relative" :src="master.imgMaster">
-        </div>
-        <h1 class="font-m break-words leading-12 text-5xl text-secondary relative sm:hidden">{{ master.name }}</h1>
+        <h1 class="font-m break-words leading-12 text-5xl text-secondary relative sm:hidden">{{
+          service.masters[masterIndex].name }}</h1>
         <div class="w-full mt-4 text-center sm:text-start">
           <h1
             class="font-m break-words leading-12 text-5xl md:text-6xl lg:text-7xl text-secondary relative hidden sm:block mb-4">
-            {{ master.name }}
-          </h1>
+            {{ service.masters[masterIndex].name }}
+          </h1>i
           <h1 class="break-words leading-12 text-xl sm:text-2xl font-bold text-main relative">
-            {{ master.specialization }}
+            {{ service.specialization }}
           </h1>
         </div>
-      </div>
-
-    </div>
+      </div> -->
 
   </div>
 
-  <div class="max-w-7xl px-4 lg:px-16 mx-auto grid grid-cols-12 mb-12 md:mb-16 lg:mb-24">
+
+  <!-- <div class="max-w-7xl px-4 lg:px-16 mx-auto grid grid-cols-12 mb-12 md:mb-16 lg:mb-24">
 
     <div
       :class="['col-span-12 sm:col-span-8 lg:col-span-12 col-start-0 sm:col-start-3 lg:col-start-0 w-full cursor-pointer relative lg:h-full lg:grid lg:grid-cols-12']">
 
-      <div v-if="master.description" class="col-span-6">
+      <div class="col-span-6">
         <div @click="descHidden = true" :class="['h-20 lg:h-full relative overflow-hidden lg:overflow-auto']">
           <div v-if="!descHidden"
             class="w-full absolute bg-gradient-to-t from-black via-transparent via-90% inset-0 lg:hidden" />
-          <div class="text-main text-base max-w-prose" v-html="master.description"></div>
+          <div class="text-main text-base max-w-prose" v-html="service.masters[masterIndex].description"></div>
         </div>
 
         <div @click="descHidden = true" v-if="!descHidden"
@@ -57,7 +80,7 @@ const descHidden = ref(false)
       <div class="col-span-5 col-end-13">
 
         <ul class="w-full max-w-2xl col-span-12 pb-8 pt-8 lg:pt-0">
-          <li v-for="item in master.services"
+          <li v-for=" item  in  service.services "
             class="cursor-pointer leading-9 flex flex-col justify-between items-center text-main">
 
             <div class="hover:bg-dark font-bold flex flex-row items-center justify-center w-full py-3 px-2 sm:px-4"
@@ -71,7 +94,7 @@ const descHidden = ref(false)
             </div>
 
             <ul :class="['w-full px-6 py-4 lg:block', !item.opened && 'hidden']">
-              <li v-for="service in item.list"
+              <li v-for=" service  in  item.list "
                 class="odd:bg-dark px-2 py-2 w-full flex justify-between items-center text-sm">
                 <div>
                   {{ service.name }}
@@ -92,7 +115,7 @@ const descHidden = ref(false)
 
     </div>
 
-  </div>
+  </div> -->
 </template>
 
 <style lang="postcss" scoped></style>
