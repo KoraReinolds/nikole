@@ -6,6 +6,9 @@ const descHidden = ref(false)
 const masterIndex = ref(0)
 const oneMaster = computed(() => props.service.masters.length === 1)
 const secondMasterIndex = computed(() => (masterIndex.value + 1) % props.service.masters.length)
+const next = () => {
+  masterIndex.value = secondMasterIndex.value
+}
 </script>
 
 <template>
@@ -15,28 +18,35 @@ const secondMasterIndex = computed(() => (masterIndex.value + 1) % props.service
       <img class="object-cover w-full h-[360px] sm:h-[500px] absolute inset-0" :src="service.img">
     </FadedImg>
 
-    <div class="mt-16 mb-12 relative flex items-center gap-3">
-      <div v-if="!oneMaster" class="absolute top-1/2 -translate-y-1/2 left-0 shrink-0 w-20 h-20 flex items-center">
-        <img class="object-cover w-16 h-16 mx-auto rounded-full relative" :src="service.masters[secondMasterIndex].img">
+    <div class="mt-16 mb-12 relative flex items-center gap-3 sm:gap-6">
+
+      <div v-if="!oneMaster"
+        class="absolute top-1/2 -translate-y-1/2 left-0 shrink-0 w-20 h-20 sm:w-32 sm:h-32 flex items-center">
+        <img class="object-cover w-full h-full p-1 mx-auto rounded-full relative"
+          :src="service.masters[secondMasterIndex].img">
         <div class="backdrop-blur-[1px] w-full h-full inset-0 absolute rounded-full"></div>
       </div>
       <div
-        :class="['shrink-0 w-24 h-24 sm:w-40 sm:h-40 relative  rounded-full bg-dark border-secondary border-2', !oneMaster && 'ml-8']">
-        <img class="object-cover p-0.5 w-full h-full rounded-full relative" :src="service.masters[masterIndex].img">
+        :class="['shrink-0 w-24 h-24 sm:w-44 sm:h-44 relative rounded-full bg-dark border-secondary border-2 sm:border-4', !oneMaster && 'ml-8 sm:ml-12']">
+        <img class="object-cover p-0.5 sm:p-1 w-full h-full rounded-full relative"
+          :src="service.masters[masterIndex].img">
       </div>
-      <div class="flex flex-col gap-2">
-        <div class="flex items-center gap-2">
-          <h1 class="font-m break-words leading-12 text-4xl sm:text-5xl text-secondary relative">
+
+      <div class="flex flex-col gap-2 sm:gap-3">
+        <div class="flex items-center gap-2 sm:gap-3 justify-between">
+          <h1 class="font-m break-words leading-12 text-4xl sm:text-6xl text-secondary relative">
             {{ service.masters[masterIndex].name }}
           </h1>
-          <div v-if="!oneMaster" class="border border-secondary rounded-full w-5 h-5 flex items-center justify-center">
-            <Arrow width="7" height="14" />
+          <div v-if="!oneMaster" @click="next"
+            class="border border-secondary rounded-full w-5 h-5 sm:w-8 sm:h-8 flex items-center justify-center cursor-pointer">
+            <Arrow class="h-full py-0.5 sm:p-1" />
           </div>
         </div>
-        <h1 class="break-words leading-12 text-xl sm:text-2xl font-bold text-main relative">
+        <h1 class="break-words leading-12 text-xl sm:text-3xl font-bold text-main relative">
           {{ service.specialization }}
         </h1>
       </div>
+
     </div>
     <!-- <div class="h-[360px] sm:h-[500px] w-full grid grid-cols-12 max-w-7xl px-16">
 
