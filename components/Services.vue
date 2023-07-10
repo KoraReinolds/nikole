@@ -12,7 +12,7 @@ const next = () => {
 </script>
 
 <template>
-  <div class="flex flex-col justify-center items-center bg-black text-xl text-secondary relative lg:py-24"
+  <div class="flex flex-col justify-center items-center gap-8 mb-12 bg-black text-xl text-secondary relative"
     :id="service.ref">
 
     <div class="object-cover w-full h-full max-h-[330px] md:max-h-[440px] sm:h-[500px] absolute inset-0">
@@ -21,7 +21,8 @@ const next = () => {
       </FadedImg>
     </div>
 
-    <div class="mt-16 mb-12 w-full flex flex-col gap-8 px-10 relative sm:grid sm:grid-cols-12">
+    <div
+      class="max-w-screen-xl mx-auto w-full flex flex-col mt-16 lg:mt-[168px] lg:mb-24 gap-8 px-10 relative sm:grid sm:grid-cols-12">
 
       <div
         class="flex items-center gap-3 sm:gap-6 sm:col-span-12 sm:mx-auto md:mx-0 md:col-start-3 lg:col-start-1 lg:col-span-5">
@@ -38,16 +39,16 @@ const next = () => {
         </div>
 
         <div class="flex flex-col gap-2 sm:gap-3">
-          <div class="flex items-center gap-2 sm:gap-3 justify-between">
+          <div class="flex items-end gap-2 sm:gap-3 justify-between">
             <h1 class="font-m break-words leading-12 text-4xl sm:text-6xl text-secondary relative">
               {{ service.masters[masterIndex].name }}
             </h1>
             <div v-if="!oneMaster" @click="next"
-              class="border border-secondary rounded-full w-5 h-5 sm:w-8 sm:h-8 flex items-center justify-center cursor-pointer">
+              class="mb-1 border md:border-2 border-secondary rounded-full w-5 h-5 sm:w-8 sm:h-8 flex items-center justify-center cursor-pointer">
               <Arrow class="h-full py-0.5 sm:p-1" />
             </div>
           </div>
-          <h1 class="break-words leading-12 text-xl sm:text-3xl font-bold text-main relative">
+          <h1 class="break-words leading-12 text-lg sm:text-3xl font-bold text-main relative">
             {{ service.specialization }}
           </h1>
         </div>
@@ -57,8 +58,9 @@ const next = () => {
         :class="['flex flex-col gap-2 sm:col-span-8 sm:col-start-3 lg:col-start-1 lg:col-span-5', descHidden && 'cursor-pointer']"
         @click="descHidden = false">
         <div
-          :class="['lg:h-full relative lg:overflow-auto', descHidden ? 'h-[60px] overflow-hidden text-ellipsis' : 'h-full overflow-auto']">
-          <div class="text-main text-sm max-w-prose font-light" v-html="service.masters[masterIndex].description"></div>
+          :class="['lg:h-full relative lg:overflow-auto', descHidden ? 'h-[72px] overflow-hidden text-ellipsis' : 'h-full overflow-auto']">
+          <div class="text-main text-sm max-w-prose font-light leading-6"
+            v-html="service.masters[masterIndex].description"></div>
         </div>
 
         <div v-if="descHidden" class="text-secondary flex justify-start items-center top-16 h-6 col-span-12 lg:hidden">
@@ -67,51 +69,24 @@ const next = () => {
         </div>
       </div>
 
-    </div>
-    <!-- <div class="h-[360px] sm:h-[500px] w-full grid grid-cols-12 max-w-7xl px-16">
+      <div class="col-span-12 sm:col-span-8 sm:col-start-3 lg:col-span-6 lg:col-end-13">
+        <ul class="relative lg:col-span-6 lg:col-start-7 service-list" :style="'idth: calc(100% + 40px)'">
+          <li v-for="item in service.services"
+            class="cursor-pointer leading-9 col-span-12 sm:col-span-8 flex flex-col justify-between items-center text-main">
 
-      <div
-        class="flex flex-wrap sm:flex-nowrap items-end justify-center col-start-1 sm:col-start-3 lg:col-start-1 col-span-12 sm:col-span-8 lg:col-span-6 mt-auto mb-12 lg:mb-16">
-        <h1 class="font-m break-words leading-12 text-5xl text-secondary relative sm:hidden">{{
-          service.masters[masterIndex].name }}</h1>
-        <div class="w-full mt-4 text-center sm:text-start">
-          <h1
-            class="font-m break-words leading-12 text-5xl md:text-6xl lg:text-7xl text-secondary relative hidden sm:block mb-4">
-            {{ service.masters[masterIndex].name }}
-          </h1>i
-          <h1 class="break-words leading-12 text-xl sm:text-2xl font-bold text-main relative">
-            {{ service.specialization }}
-          </h1>
-        </div>
-      </div> -->
-
-  </div>
-
-
-  <!-- <div class="max-w-7xl px-4 lg:px-16 mx-auto grid grid-cols-12 mb-12 md:mb-16 lg:mb-24">
-
-    <div
-      :class="['col-span-12 sm:col-span-8 lg:col-span-12 col-start-0 sm:col-start-3 lg:col-start-0 w-full cursor-pointer relative lg:h-full lg:grid lg:grid-cols-12']">
-
-      <div class="col-span-5 col-end-13">
-
-        <ul class="w-full max-w-2xl col-span-12 pb-8 pt-8 lg:pt-0">
-          <li v-for=" item  in  service.services "
-            class="cursor-pointer leading-9 flex flex-col justify-between items-center text-main">
-
-            <div class="hover:bg-dark font-bold flex flex-row items-center justify-center w-full py-3 px-2 sm:px-4"
+            <div class="hover:bg-dark font-bold flex flex-row items-center justify-center gap-2.5 w-full py-3 px-4"
               @click="item.opened = !item.opened">
-              <List class="w-4 h-4 fill-secondary mr-4" />
-              <div class="text-left w-full flex items-center text-xl">
+              <List class="w-4 h-4 fill-secondary" />
+              <div class="text-left w-full flex items-center text-xl lg:text-2xl">
                 {{ item.name }}
               </div>
               <Arrow
                 :class="['fill-secondary h-6 top-16 left-1/2 lg:hidden', item.opened ? '-rotate-90' : 'rotate-90']" />
             </div>
 
-            <ul :class="['w-full px-6 py-4 lg:block', !item.opened && 'hidden']">
-              <li v-for=" service  in  item.list "
-                class="odd:bg-dark px-2 py-2 w-full flex justify-between items-center text-sm">
+            <ul :class="['w-full px-8 py-4 lg:block', !item.opened && 'hidden']">
+              <li v-for="service in item.list"
+                class="odd:bg-dark font-medium px-2 py-2 w-full flex justify-between items-center text-sm lg:text-base">
                 <div>
                   {{ service.name }}
                 </div>
@@ -124,14 +99,26 @@ const next = () => {
           </li>
         </ul>
 
-        <Btn class="ml-8 bg-main" href="#contacts" title="Записаться">
+        <Btn class="bg-main mt-8 mx-auto text-dark" href="#contacts" title="Записаться">
         </Btn>
 
       </div>
 
     </div>
 
-  </div> -->
+  </div>
 </template>
 
-<style lang="postcss" scoped></style>
+<style lang="postcss" scoped>
+.service-list {
+  @media (max-width: 640px) {
+    width: calc(100% + 80px);
+    left: -40px;
+  }
+
+  @media (max-width: 1023px) {
+    width: calc(100% + 84px);
+    left: -42px;
+  }
+}
+</style>

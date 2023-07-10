@@ -224,7 +224,7 @@ const services = ref([
     ],
   }, {
     ref: 'ksenia',
-    specialization: 'Макияж',
+    specialization: 'Перманентный макияж',
     img: servicesImgs['/assets/img/services/пм.png'].default,
     masters: [masters[1], masters[2]],
     services: [
