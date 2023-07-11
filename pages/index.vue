@@ -130,17 +130,17 @@ const services = ref([
     masters: [masters[1], masters[3]],
     services: [
       {
-        name: "Перманентный макияж бровей",
+        name: "Пм бровей",
         list: specializations['9'],
         opened: false,
       },
       {
-        name: "Перманентный макияж век",
+        name: "Пм век",
         list: specializations['10'],
         opened: false,
       },
       {
-        name: "Перманентный макияж губ",
+        name: "Пм губ",
         list: specializations['11'],
         opened: false,
       },
@@ -152,12 +152,12 @@ const services = ref([
     masters: [masters[2]],
     services: [
       {
-        name: "Хиропластический массаж",
+        name: "Хиропластический",
         list: specializations['4'],
         opened: false,
       },
       {
-        name: "Антицеллюлитный массаж",
+        name: "Антицеллюлитный",
         list: specializations['5'],
         opened: false,
       },
@@ -167,12 +167,12 @@ const services = ref([
         opened: false,
       },
       {
-        name: "Лимфодренажный массаж",
+        name: "Лимфодренажный",
         list: specializations['7'],
         opened: false,
       },
       {
-        name: "Японский массаж (кобидо)",
+        name: "Японский (кобидо)",
         list: specializations['8'],
         opened: false,
       },

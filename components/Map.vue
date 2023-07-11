@@ -1,6 +1,6 @@
 <script setup>
 import { tryOnMounted } from '@vueuse/core';
-
+const socialImgs = import.meta.globEager('@/assets/img/socials/*.png');
 const isMounted = ref(false)
 tryOnMounted(() => {
   isMounted.value = true;
@@ -10,12 +10,12 @@ const options = {
   searchControlProvider: 'none',
 }
 
-const markerCoords = [68.9732619, 33.0899664]
+const markerCoords = [68.9740499, 33.0887814]
 
 const markerOptions = {
   iconLayout: 'default#image',
-  iconImageHref: '@/assets/img/vk.png',
-  iconImageSize: [30, 30],
+  iconImageHref: socialImgs['/assets/img/socials/map.png'].default,
+  iconImageSize: [90, 105],
   iconImageOffset: [-15, -30],
 }
 
@@ -34,9 +34,9 @@ const markerOptions = {
     <div v-if="isMounted" class="w-full md:w-[400px]">
       <yandex-map :settings="settings" :coords="markerCoords" zoom="16" :cluster-options="{
         1: { clusterDisableClickZoom: true }
-      }" :behaviors="['drag', 'scrollZoom']" :controls="[]">
-        <ymap-marker markerId="1" marker-type="placemark" :coords="markerCoords" hint-content="Николе"
-          :balloon="{ header: 'header', body: 'body', footer: 'footer' }" cluster-name="1" />
+      }" :behaviors="['drag']" :controls="[]">
+        <ymap-marker markerId="1" marker-type="placemark" :options="markerOptions" :coords="markerCoords"
+          hint-content="Николе" :balloon="{ header: 'header', body: 'body', footer: 'footer' }" cluster-name="1" />
       </yandex-map>
     </div>
   </section>

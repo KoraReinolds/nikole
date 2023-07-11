@@ -7,7 +7,7 @@ if (process.client) {
 
 <template>
   <div class="h-screen sm:h-[900px] relative flex justify-center">
-    <FadedImg class="opacity-0">
+    <FadedImg class="opacity-50 sm:opacity-0">
       <img src="../assets/img/massage_main.png" alt="Массаж в салоне Николе" title="Массаж"
         class="h-full w-full object-cover absolute inset-0">
     </FadedImg>

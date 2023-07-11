@@ -44,7 +44,7 @@ const next = () => {
               {{ service.masters[masterIndex].name }}
             </h1>
             <div v-if="!oneMaster" @click="next"
-              class="mb-1 border md:border-2 border-secondary rounded-full w-5 h-5 sm:w-8 sm:h-8 flex items-center justify-center cursor-pointer">
+              class="mb-2 border md:border-2 border-secondary rounded-full w-5 h-5 sm:w-8 sm:h-8 flex items-center justify-center cursor-pointer">
               <Arrow class="h-full py-0.5 sm:p-1" />
             </div>
           </div>
@@ -75,9 +75,10 @@ const next = () => {
           <li v-for="item in service.services"
             class="cursor-pointer leading-9 col-span-12 sm:col-span-8 flex flex-col justify-between items-center text-main">
 
-            <div class="hover:bg-dark font-bold flex flex-row items-center justify-center gap-2.5 w-full py-3 px-4"
+            <div
+              class="hover:bg-dark font-bold flex flex-row items-center justify-center gap-3.5 sm:gap-2.5 w-full py-3 px-4"
               @click="item.opened = !item.opened">
-              <List class="w-4 h-4 fill-secondary" />
+              <List class="w-3 h-3 sm:h-4 sm:w-4 fill-secondary" />
               <div class="text-left w-full flex items-center text-xl lg:text-2xl">
                 {{ item.name }}
               </div>

@@ -33,8 +33,8 @@ export default defineNuxtConfig({
 
   app: {
     head: {
-      title: 'Template',
-      htmlAttrs: { lang: 'en' },
+      title: 'Николе - массаж, депиляция, перманентный макияж',
+      htmlAttrs: { lang: 'ru' },
       link: [
         { rel: 'icon', type: 'image/x-icon', href: '/favicon.png' }
       ],
