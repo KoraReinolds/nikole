@@ -32,7 +32,7 @@ const markerOptions = {
       <p>Пн-Вс: с 10:00 до 21:00</p>
     </div>
     <div v-if="isMounted" class="w-full md:w-[400px]">
-      <yandex-map :settings="settings" :coords="markerCoords" zoom="17" :cluster-options="{
+      <yandex-map :settings="settings" :coords="markerCoords" zoom="16" :cluster-options="{
         1: { clusterDisableClickZoom: true }
       }" :behaviors="['drag', 'scrollZoom']" :controls="[]">
         <ymap-marker markerId="1" marker-type="placemark" :coords="markerCoords" hint-content="Николе"

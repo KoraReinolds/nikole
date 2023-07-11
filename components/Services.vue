@@ -16,7 +16,7 @@ const next = () => {
     :id="service.ref">
 
     <div class="object-cover w-full h-full max-h-[330px] md:max-h-[440px] sm:h-[500px] absolute inset-0">
-      <FadedImg v-if="service.img">
+      <FadedImg v-if="service.img" class="opacity-70">
         <img class="object-cover w-full h-full absolute inset-0" :src="service.img">
       </FadedImg>
     </div>
@@ -59,8 +59,9 @@ const next = () => {
         @click="descHidden = false">
         <div
           :class="['lg:h-full relative lg:overflow-auto', descHidden ? 'h-[72px] overflow-hidden text-ellipsis' : 'h-full overflow-auto']">
-          <div class="text-main text-sm max-w-prose font-light leading-6"
-            v-html="service.masters[masterIndex].description"></div>
+          <div class="text-main text-sm max-w-prose font-light leading-6 lg:pt-3">
+            <component :is="service.masters[masterIndex].description"></component>
+          </div>
         </div>
 
         <div v-if="descHidden" class="text-secondary flex justify-start items-center top-16 h-6 col-span-12 lg:hidden">
